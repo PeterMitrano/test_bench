@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.5'>
   <model name='test_bench'>
-    <link name='test_bench::base'>
+    <link name='base'>
       <pose frame=''>-0 -0 0.5 0 -0 0</pose>
       <inertial>
         <mass>1</mass>
@@ -89,7 +89,7 @@
         </surface>
       </collision>
     </link>
-    <link name='test_bench::pan_link'>
+    <link name='pan_link'>
       <pose frame=''>0.45 0.45 0.3 0 -0 0.000444</pose>
       <inertial>
         <mass>0.1</mass>
@@ -177,7 +177,7 @@
         </surface>
       </collision>
     </link>
-    <link name='test_bench::pan_tilt_base'>
+    <link name='pan_tilt_base'>
       <pose frame=''>0.45 0.3 0.1 0 -0 0</pose>
       <inertial>
         <mass>0.1</mass>
@@ -265,7 +265,7 @@
         </surface>
       </collision>
     </link>
-    <link name='test_bench::tilt_link'>
+    <link name='tilt_link'>
       <pose frame=''>0.45 0.45 0.15 0 -0 0</pose>
       <inertial>
         <mass>0.1</mass>
@@ -353,9 +353,9 @@
         </surface>
       </collision>
     </link>
-    <joint name='test_bench::pan_joint' type='revolute'>
-      <parent>test_bench::pan_link</parent>
-      <child>test_bench::tilt_link</child>
+    <joint name='pan_joint' type='revolute'>
+      <parent>pan_link</parent>
+      <child>tilt_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -390,9 +390,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='test_bench::pan_tilt_base_joint' type='fixed'>
-      <parent>test_bench::base</parent>
-      <child>test_bench::pan_tilt_base</child>
+    <joint name='pan_tilt_base_joint' type='fixed'>
+      <parent>base</parent>
+      <child>pan_tilt_base</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
         <ode>
@@ -411,9 +411,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='test_bench::tilt_joint' type='revolute'>
-      <parent>test_bench::tilt_link</parent>
-      <child>test_bench::pan_tilt_base</child>
+    <joint name='tilt_joint' type='revolute'>
+      <parent>tilt_link</parent>
+      <child>pan_tilt_base</child>
       <pose frame=''>0 0 0.05 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -454,17 +454,17 @@
       <topic>/gazebo/frc/time</topic>
     </plugin>
     <plugin name='pan_servo' filename='libservo.so'>
-      <joint>test_bench::pan_joint</joint>
+      <joint>pan_joint</joint>
       <topic>/gazebo/frc/simulator/pwm/8</topic>
       <torque>8</torque>
     </plugin>
     <plugin name='tilt_servo' filename='libservo.so'>
-      <joint>test_bench::tilt_joint</joint>
+      <joint>tilt_joint</joint>
       <topic>/gazebo/frc/simulator/pwm/9</topic>
       <torque>8</torque>
     </plugin>
     <plugin name='base_gyro' filename='libgyro.so'>
-      <link>test_bench::pan_link</link>
+      <link>pan_link</link>
       <topic>/gazebo/frc/simulator/analog/1</topic>
       <axis>yaw</axis>
       <units>degrees</units>
