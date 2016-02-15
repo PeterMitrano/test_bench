@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
-<sdf version='1.5'>
+<sdf version='1.6'>
   <model name='test_bench'>
-    <link name='base'>
+    <link name='test_bench::base'>
       <pose frame=''>-0 -0 0.5 0 -0 0</pose>
       <inertial>
         <mass>1</mass>
@@ -17,7 +17,6 @@
       </inertial>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -26,14 +25,10 @@
           </box>
         </geometry>
         <material>
-          <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Gray</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
@@ -60,6 +55,15 @@
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
           </friction>
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
@@ -89,8 +93,8 @@
         </surface>
       </collision>
     </link>
-    <link name='pan_link'>
-      <pose frame=''>0.45 0.45 0.3 0 -0 0.000444</pose>
+    <link name='test_bench::pan_link'>
+      <pose frame=''>0.25 0.45 0.1 0 -0 0.000444</pose>
       <inertial>
         <mass>0.1</mass>
         <pose frame=''>0 0 0 0 -0 0</pose>
@@ -113,21 +117,20 @@
             <size>0.1 0.1 0.2</size>
           </box>
         </geometry>
+        <cast_shadows>1</cast_shadows>
         <material>
-          <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Blue</name>
           </script>
-          <shader type='pixel'>
+          <ambient>0 0 1 1</ambient>
+          <diffuse>0 0 1 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
             <normal_map>__default__</normal_map>
           </shader>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>
-          <emissive>0 0 0 1</emissive>
         </material>
-        <cast_shadows>1</cast_shadows>
         <transparency>0</transparency>
       </visual>
       <collision name='collision'>
@@ -148,6 +151,15 @@
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
           </friction>
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
@@ -177,7 +189,7 @@
         </surface>
       </collision>
     </link>
-    <link name='pan_tilt_base'>
+    <link name='test_bench::pan_tilt_base'>
       <pose frame=''>0.45 0.3 0.1 0 -0 0</pose>
       <inertial>
         <mass>0.1</mass>
@@ -193,7 +205,6 @@
       </inertial>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -202,14 +213,10 @@
           </box>
         </geometry>
         <material>
-          <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Gray</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
@@ -236,6 +243,15 @@
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
           </friction>
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
@@ -265,7 +281,7 @@
         </surface>
       </collision>
     </link>
-    <link name='tilt_link'>
+    <link name='test_bench::tilt_link'>
       <pose frame=''>0.45 0.45 0.15 0 -0 0</pose>
       <inertial>
         <mass>0.1</mass>
@@ -281,7 +297,6 @@
       </inertial>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -289,21 +304,17 @@
             <size>0.1 0.2 0.1</size>
           </box>
         </geometry>
+        <cast_shadows>1</cast_shadows>
         <material>
-          <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Red</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
-        <cast_shadows>1</cast_shadows>
         <transparency>0</transparency>
       </visual>
       <collision name='collision'>
@@ -324,6 +335,15 @@
               <slip1>0</slip1>
               <slip2>0</slip2>
             </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
           </friction>
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
@@ -353,32 +373,28 @@
         </surface>
       </collision>
     </link>
-    <joint name='pan_joint' type='revolute'>
-      <parent>pan_link</parent>
-      <child>tilt_link</child>
+    <joint name='test_bench::pan_joint' type='revolute'>
+      <parent>test_bench::base</parent>
+      <child>test_bench::pan_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
-          <lower>-1.5708</lower>
-          <upper>1.5708</upper>
+          <lower>0</lower>
+          <upper>3.14159</upper>
           <effort>-1</effort>
-          <velocity>-1</velocity>
+          <velocity>0.1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <damping>0.05</damping>
           <friction>0</friction>
         </dynamics>
       </axis>
       <physics>
         <ode>
-          <cfm>0</cfm>
-          <bounce>0</bounce>
-          <velocity>0</velocity>
-          <fudge_factor>0</fudge_factor>
           <limit>
             <cfm>0</cfm>
             <erp>0.2</erp>
@@ -390,16 +406,12 @@
         </ode>
       </physics>
     </joint>
-    <joint name='pan_tilt_base_joint' type='fixed'>
-      <parent>base</parent>
-      <child>pan_tilt_base</child>
+    <joint name='test_bench::pan_tilt_base_joint' type='fixed'>
+      <parent>test_bench::base</parent>
+      <child>test_bench::pan_tilt_base</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
         <ode>
-          <cfm>0</cfm>
-          <bounce>0</bounce>
-          <velocity>0</velocity>
-          <fudge_factor>0</fudge_factor>
           <limit>
             <cfm>0</cfm>
             <erp>0.2</erp>
@@ -411,9 +423,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='tilt_joint' type='revolute'>
-      <parent>tilt_link</parent>
-      <child>pan_tilt_base</child>
+    <joint name='test_bench::tilt_joint' type='revolute'>
+      <parent>test_bench::tilt_link</parent>
+      <child>test_bench::pan_tilt_base</child>
       <pose frame=''>0 0 0.05 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -422,21 +434,17 @@
           <lower>-1.5708</lower>
           <upper>1.5708</upper>
           <effort>-1</effort>
-          <velocity>-1</velocity>
+          <velocity>0.05</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
+          <damping>0.1</damping>
           <friction>0</friction>
         </dynamics>
       </axis>
       <physics>
         <ode>
-          <cfm>0</cfm>
-          <bounce>0</bounce>
-          <velocity>0</velocity>
-          <fudge_factor>0</fudge_factor>
           <limit>
             <cfm>0</cfm>
             <erp>0.2</erp>
@@ -450,24 +458,25 @@
     </joint>
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
+    <plugin name='base_gyro' filename='libgyro.so'>
+      <link>test_bench::pan_link</link>
+      <topic>/gazebo/frc/simulator/analog/0</topic>
+      <axis>yaw</axis>
+      <units>degrees</units>
+    </plugin>
     <plugin name='clock' filename='libclock.so'>
       <topic>/gazebo/frc/time</topic>
     </plugin>
     <plugin name='pan_servo' filename='libservo.so'>
-      <joint>pan_joint</joint>
+      <joint>test_bench::pan_joint</joint>
       <topic>/gazebo/frc/simulator/pwm/8</topic>
-      <torque>8</torque>
+      <torque>10</torque>
     </plugin>
     <plugin name='tilt_servo' filename='libservo.so'>
-      <joint>tilt_joint</joint>
+      <joint>test_bench::tilt_joint</joint>
       <topic>/gazebo/frc/simulator/pwm/9</topic>
-      <torque>8</torque>
-    </plugin>
-    <plugin name='base_gyro' filename='libgyro.so'>
-      <link>pan_link</link>
-      <topic>/gazebo/frc/simulator/analog/1</topic>
-      <axis>yaw</axis>
-      <units>degrees</units>
+      <torque>10</torque>
+      <zero_position>-1.570796</zero_position>
     </plugin>
   </model>
 </sdf>
